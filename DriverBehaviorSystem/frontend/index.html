@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Behavior Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="glass-panel">
+            <div class="logo">
+                <div class="pulse-dot"></div>
+                <h1>Driver Behavior Intelligence</h1>
+            </div>
+            <div class="system-status">
+                <span class="status-indicator online"></span>
+                System Active
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Left Panel: Video Feed -->
+            <div class="feed-section glass-panel">
+                <div class="panel-header">
+                    <h2>Live Monitor</h2>
+                </div>
+                <div class="video-container">
+                    <img id="videoStream" src="" alt="Connecting to stream..." />
+                    <!-- Dynamic overlays handled by backend, but we can do some CSS overlays if we want -->
+                    <div id="connectionOverlay" class="video-overlay">Connecting to Core Engine...</div>
+                </div>
+                
+                <div class="explainable-ai">
+                    <h3>Explainable AI <span class="badge">Live</span></h3>
+                    <div class="reason-box" id="aiReason">Analyzing driver state...</div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Analytics & Metrics -->
+            <div class="analytics-section">
+                <!-- Metrics Grid -->
+                <div class="metrics-grid">
+                    <div class="metric-card glass-panel">
+                        <div class="metric-label">Driver State</div>
+                        <div class="metric-val" id="valDriverState">Focused</div>
+                    </div>
+                    <div class="metric-card glass-panel">
+                        <div class="metric-label">Eye Status</div>
+                        <div class="metric-val" id="valEyeStatus">Open</div>
+                    </div>
+                    <div class="metric-card glass-panel">
+                        <div class="metric-label">Gaze Direction</div>
+                        <div class="metric-val" id="valGaze">Center</div>
+                    </div>
+                    <div class="metric-card glass-panel">
+                        <div class="metric-label">Head Pose (Pitch/Yaw)</div>
+                        <div class="metric-val" id="valHead">0° / 0°</div>
+                    </div>
+                </div>
+
+                <!-- Risk Graph -->
+                <div class="graph-card glass-panel">
+                    <div class="panel-header">
+                        <h2>Risk Trend</h2>
+                        <div class="risk-badge safe" id="riskBadge">Safe - 0%</div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="riskChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Alert Panel -->
+                <div class="alert-card glass-panel">
+                    <div class="panel-header">
+                        <h2>System Alerts</h2>
+                    </div>
+                    <div class="alert-list" id="alertList">
+                        <!-- Alerts go here -->
+                        <div class="alert-item info">System initialized safely.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden audio element for voice alerts -->
+    <audio id="alertSound" src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=" preload="auto"></audio>
+    <script src="js/app.js"></script>
+</body>
+</html>
